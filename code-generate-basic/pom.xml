@@ -35,10 +35,18 @@
             <scope>test</scope>
         </dependency>
         <!-- https://freemarker.apache.org/index.html -->
+<!--        模板文件-->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.32</version>
+        </dependency>
+<!--        命令行-->
+        <!-- https://picocli.info -->
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+            <version>4.7.5</version>
         </dependency>
 
     </dependencies>
