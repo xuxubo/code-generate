@@ -1,11 +1,12 @@
 package edu.guidian;
 
+import edu.guidian.cli.CommandExecutor;
+
 import java.io.File;
 
 import static edu.guidian.generator.StaticGenerator.copyFilesByHutool;
 
-//TIP 要<b>运行</b>代码，请按 <shortcut actionId="Run"/> 或
-// 点击装订区域中的 <icon src="AllIcons.Actions.Execute"/> 图标。
+
 public class Main {
     public static void main(String[] args) {
 //        String projectPath = System.getProperty("user.dir");
@@ -15,8 +16,11 @@ public class Main {
 //
 //        String outputPath = projectPath;
 //        copyFilesByHutool(inputPath, outputPath);
-
-
+        //args = new String[]{"list"};
+        //args = new String[]{"config"};
+        //args = new String[]{"generate", "-l", "-a", "-o"};
+        CommandExecutor commandExecutor = new CommandExecutor();
+        commandExecutor.doExecute(args);
 
 
     }

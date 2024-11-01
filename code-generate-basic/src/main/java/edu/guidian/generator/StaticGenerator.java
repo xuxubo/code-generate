@@ -58,7 +58,8 @@ public class StaticGenerator {
          */
         else {
             //输出文件地址
-            Path destPath = outputPath.toPath().resolve(inputPath.getName());
+            //Path destPath = outputPath.toPath().resolve(inputPath.getName());
+            Path destPath = outputPath.toPath();
             Files.copy(inputPath.toPath(), destPath, StandardCopyOption.REPLACE_EXISTING);
         }
 

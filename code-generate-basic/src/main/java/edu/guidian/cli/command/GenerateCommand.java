@@ -12,11 +12,11 @@ import java.util.concurrent.Callable;
 @Data
 public class GenerateCommand implements Callable<Integer> {
 
-    @CommandLine.Option(names = {"-l", "--loop"}, description = "是否循环",arity = "0..1")
+    @CommandLine.Option(names = {"-l", "--loop"}, description = "是否循环",arity = "0..1",interactive = true,echo = true)
     private boolean loop;
-    @CommandLine.Option(names = {"-a", "--author"}, description = "作者",arity = "0..1")
+    @CommandLine.Option(names = {"-a", "--author"}, description = "作者",arity = "0..1",interactive = true,echo = true)
     private String author;
-    @CommandLine.Option(names = {"-o", "--outputText"}, description = "输出文本",arity = "0..1")
+    @CommandLine.Option(names = {"-o", "--outputText"}, description = "输出文本",arity = "0..1",interactive = true,echo = true)
     private String outputText = "sum = ";
 
 

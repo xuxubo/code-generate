@@ -24,13 +24,18 @@ public class MainGenerator {
         //String projectPath = System.getProperty("user.dir");
         // 整个项目的根路径
         String projectPath = System.getProperty("user.dir") + File.separator + "code-generate-basic";
+        System.out.println("整个项目的根路径:"+projectPath);
         String inputPath = projectPath + File.separator + "/src/main/resources/templates/MainTemplate.java.ftl";
+        System.out.println("输入路径"+inputPath);
         String outputPath = projectPath + File.separator + "MainTemplate.java";
+        System.out.println("输出路径"+outputPath);
         // 生成静态文件
         StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
         // 生成动态文件
         String inputDynamicFilePath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
-        String outputDynamicFilePath = outputPath + File.separator + "acm-template/src/com/yupi/acm/MainTemplate.java";
+        System.out.println("动态输入路径："+inputDynamicFilePath);
+        String outputDynamicFilePath = outputPath ;//+ File.separator+ "acm-template/src/com/yupi/acm/MainTemplate.java"
+        System.out.println("动态输出路径"+outputDynamicFilePath);
         DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 

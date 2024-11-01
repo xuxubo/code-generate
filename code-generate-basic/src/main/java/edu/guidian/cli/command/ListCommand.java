@@ -15,7 +15,7 @@ public class ListCommand  implements Runnable{
         // 整个项目的根路径
         File parentFile = new File(projectPath).getParentFile();
         // 输入路径
-        String inputPath = new File(parentFile, "yuzi-generator-demo-projects/acm-template").getAbsolutePath();
+        String inputPath = new File(parentFile, "code-generate/acm-template").getAbsolutePath();
         List<File> files = FileUtil.loopFiles(inputPath);
         for (File file : files) {
             System.out.println(file);
