@@ -4,6 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
 import edu.guidian.maker.generator.JarGenerator;
+import edu.guidian.maker.generator.ScriptGenerator;
 import edu.guidian.maker.generator.file.DynamicFileGenerator;
 import edu.guidian.maker.meta.Meta;
 import edu.guidian.maker.meta.MetaManager;
@@ -88,7 +89,33 @@ public class MainGenerator {
         outputFilePath = outputPath + File.separator + "pom.xml";
         DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
 
-        //JarGenerator.doGenerate(outputPath);
+        inputFilePath = inputResourcePath + File.separator + "templates/README.md.ftl";
+        outputFilePath = outputPath + File.separator + "README.md";
+        DynamicFileGenerator.doGenerate(inputFilePath,outputFilePath,meta);
+        //jar包
+        JarGenerator.doGenerate(outputPath);
+        //脚本
+        String shellOutputFilePath = outputPath + File.separator + "generator";
+        String jarName = String.format("%s-%s-jar-with-dependencies.jar", meta.getName(), meta.getVersion());
+        String jarPath = "target/" + jarName;
+
+        ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
+
+        // 生成精简版的程序（产物包）
+        String distOutputPath = outputPath + "-dist";
+        // - 拷贝 jar 包
+        String targetAbsolutePath = distOutputPath + File.separator + "target";
+        FileUtil.mkdir(targetAbsolutePath);
+        String jarAbsolutePath = outputPath + File.separator + jarPath;
+        System.out.println(targetAbsolutePath);
+        System.out.println(jarAbsolutePath);
+
+        FileUtil.copy(jarAbsolutePath, targetAbsolutePath, true);
+        // - 拷贝脚本文件
+        FileUtil.copy(shellOutputFilePath, distOutputPath, true);
+        FileUtil.copy(shellOutputFilePath + ".bat", distOutputPath, true);
+        // - 拷贝源模板文件
+        FileUtil.copy(sourceCopyDestPath, distOutputPath, true);
     }
 
 }
