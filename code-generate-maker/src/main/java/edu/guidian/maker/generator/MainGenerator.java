@@ -1,7 +1,7 @@
 package edu.guidian.maker.generator;
 
 import cn.hutool.extra.template.TemplateException;
-import edu.guidian.maker.generator.file.DynamicGenerator;
+import edu.guidian.maker.generator.file.DynamicFileGenerator;
 import edu.guidian.maker.generator.file.StaticGenerator;
 import edu.guidian.maker.model.DataModel;
 
@@ -27,7 +27,7 @@ public class MainGenerator {
 
         inputPath = new File(inputRootPath, "src/com/yupi/acm/MainTemplate.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/com/yupi/acm/MainTemplate.java").getAbsolutePath();
-        DynamicGenerator.doGenerate(inputPath, outputPath, model);
+        DynamicFileGenerator.doGenerate(inputPath, outputPath, model);
 
         inputPath = new File(inputRootPath, ".gitignore").getAbsolutePath();
         outputPath = new File(outputRootPath, ".gitignore").getAbsolutePath();
@@ -43,7 +43,9 @@ public class MainGenerator {
         mainTemplateConfig.setAuthor("yupi");
         mainTemplateConfig.setLoop(false);
         mainTemplateConfig.setOutputText("求和结果：");
+
         doGenerate(mainTemplateConfig);
+
     }
 
 }

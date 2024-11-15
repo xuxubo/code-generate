@@ -6,8 +6,9 @@
   "author": "XuZhenbo",
   "createTime": "2024-11-01",
   "fileConfig": {
-    "inputRootPath": "E:\\星球项目\\code-generate\\acm-template",
-    "outputRootPath": "E:\\星球项目\\code-generate\\acm-template-pro",
+    "inputRootPath": ".source/acm-template",
+    "outputRootPath": "generated",
+    "sourceRootPath": "E:\\星球项目\\code-generate\\acm-template",
     "type": "dir",
     "files": [
       {

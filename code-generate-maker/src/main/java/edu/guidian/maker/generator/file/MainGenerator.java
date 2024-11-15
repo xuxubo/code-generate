@@ -36,7 +36,7 @@ public class MainGenerator {
         System.out.println("动态输入路径："+inputDynamicFilePath);
         String outputDynamicFilePath = outputPath ;//+ File.separator+ "acm-template/src/com/yupi/acm/MainTemplate.java"
         System.out.println("动态输出路径"+outputDynamicFilePath);
-        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
+        DynamicFileGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 
     public static void main(String[] args) throws TemplateException, IOException {
