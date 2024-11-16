@@ -1,10 +1,11 @@
 package edu.guidian.maker.meta;
 
-import java.io.File;
+import lombok.Getter;
 
 /**
  * 文件类型
  */
+@Getter
 public enum FileTypeEnum {
 
     DIR("目录", "dir"),
@@ -19,11 +20,4 @@ public enum FileTypeEnum {
         this.value = value;
     }
 
-    public String getText() {
-        return text;
-    }
-
-    public String getValue() {
-        return value;
-    }
 }

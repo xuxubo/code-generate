@@ -1,5 +1,8 @@
 package edu.guidian.maker.meta;
 
+import lombok.Getter;
+
+@Getter
 public enum FileGenerateTypeEnum {
 
     DYNAMIC("动态", "dynamic"),
@@ -14,13 +17,4 @@ public enum FileGenerateTypeEnum {
         this.value = value;
     }
 
-
-
-    public String getText() {
-        return text;
-    }
-
-    public String getValue() {
-        return value;
-    }
 }
