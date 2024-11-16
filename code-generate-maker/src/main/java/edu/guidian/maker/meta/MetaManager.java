@@ -3,8 +3,6 @@ package edu.guidian.maker.meta;
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.json.JSONUtil;
 
-import java.net.URL;
-import java.util.Properties;
 
 public class MetaManager {
 
@@ -26,10 +24,9 @@ public class MetaManager {
     }
 
     private static Meta initMeta(){
-        String property = System.getProperty("user.dir");
-
         String metaJson = ResourceUtil.readUtf8Str("meta.json");
         Meta newMeta = JSONUtil.toBean(metaJson, Meta.class);
+        MetaValidator.doValidAndFill(newMeta);
         return newMeta;
     }
 }
